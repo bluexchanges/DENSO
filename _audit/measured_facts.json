@@ -1,0 +1,168 @@
+{
+  "old_tcp_best": {
+    "epoch": 57,
+    "global_step": 1195444,
+    "train": {
+      "loss": 0.05493841754604365,
+      "l1": 0.05493501769559288,
+      "kl": 3.399850450770581e-07,
+      "samples": 58313,
+      "batches": 7290,
+      "episodes": 531,
+      "valid_action_steps": 434636,
+      "valid_action_elements": 3477088,
+      "timing": {
+        "epoch_seconds": 2796.324476673268,
+        "data_wait_seconds": 4.136977103538811,
+        "step_seconds": 2792.1533793648705,
+        "samples_per_s": 20.853445473314252
+      }
+    },
+    "val": {
+      "loss": 0.19734494939354966,
+      "l1": 0.19734274021367162,
+      "kl": 2.2091798780193959e-07,
+      "samples": 6214,
+      "batches": 777,
+      "episodes": 66,
+      "valid_action_steps": 47817,
+      "valid_action_elements": 382536,
+      "timing": {
+        "epoch_seconds": 166.39018808025867,
+        "data_wait_seconds": 66.81692197266966,
+        "step_seconds": 99.56949780415744,
+        "samples_per_s": 37.34595213632828
+      }
+    },
+    "smoke": false,
+    "batch_size": 8,
+    "num_workers": 2,
+    "gpu_count": 1,
+    "cuda_prefetch": true
+  },
+  "old_tcp_last_epoch": 78,
+  "old_e5_rollout": {
+    "episodes": 10,
+    "successes": 0,
+    "offline": {
+      "normalized_l1": 0.368219493516287,
+      "normalized_mae_per_dimension": [
+        0.39975092450781774,
+        0.3249550358590733,
+        0.38530331694763836,
+        0.07862263157832101,
+        0.6907537796547801,
+        0.19279201785984632,
+        0.07266153836240508,
+        0.8009167033604143
+      ],
+      "position_mean_distance_mm": 66.65049658406757,
+      "position_mae_xyz_mm": [
+        27.988609511499003,
+        33.901785641608726,
+        36.02056892114869
+      ],
+      "gripper_mae_mm": 29.16669673457298,
+      "orientation_mean_angle_deg": 24.043597233091102,
+      "orientation_valid_targets": 97340,
+      "orientation_invalid_targets": 0,
+      "samples": 4962,
+      "batches": 626,
+      "episodes": 10,
+      "valid_action_steps": 97340,
+      "valid_action_elements": 778720
+    }
+  },
+  "legacy_sample": {
+    "path": "F:\\cfg5_mophong\\local_source\\outputs\\data_audit\\local_preprocess_smoke\\pick_place_000042",
+    "arrays": {
+      "images": {
+        "shape": [
+          4,
+          8,
+          360,
+          640,
+          3
+        ],
+        "dtype": "uint8"
+      },
+      "state": {
+        "shape": [
+          4,
+          8
+        ],
+        "dtype": "float32",
+        "first": [
+          0.4336329996585846,
+          -1.3946451739590239e-16,
+          0.4388791024684906,
+          3.885780586188048e-16,
+          1.0,
+          -1.7461189827372436e-08,
+          -4.7102771630894635e-16,
+          0.07999999821186066
+        ]
+      },
+      "action": {
+        "shape": [
+          4,
+          8
+        ],
+        "dtype": "float32",
+        "first": [
+          0.4317097067832947,
+          -0.001976925181224942,
+          0.43154019117355347,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.03999999910593033
+        ]
+      },
+      "timestamps_ms": {
+        "shape": [
+          4
+        ],
+        "dtype": "int64",
+        "first": 0
+      },
+      "segment_ids": {
+        "shape": [
+          4
+        ],
+        "dtype": "int32",
+        "first": 0
+      }
+    }
+  },
+  "raw_joint_sample": {
+    "path": "F:\\cfg5_mophong\\local_source_(1)\\RH20T_cfg5\\training_data\\task_0001\\task_0001_user_0007_scene_0001_cfg_0005\\transformed\\joint.npy",
+    "serial": "036422060215",
+    "timestamp_ms": 1640002326912,
+    "raw_joint_shape": [
+      14
+    ],
+    "first_7_rad": [
+      0.03644248843193054,
+      0.35039159655570984,
+      0.00037408762727864087,
+      -1.7408684492111206,
+      0.015937628224492073,
+      1.791770339012146,
+      0.8380984663963318
+    ],
+    "gripper_measured_mm": 0.01,
+    "gripper_command_mm": 0.0,
+    "state8_rad_m": [
+      0.03644248843193054,
+      0.35039159655570984,
+      0.00037408762727864087,
+      -1.7408684492111206,
+      0.015937628224492073,
+      1.791770339012146,
+      0.8380984663963318,
+      1e-05
+    ]
+  }
+}

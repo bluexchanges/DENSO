@@ -1,0 +1,29 @@
+{
+  "main_markdown_files": 10,
+  "source_and_deliverable_links_checked": 376,
+  "qa_questions": 60,
+  "content_slides": 35,
+  "pdf_pages": 1,
+  "pdf_page_size_pt": [
+    0,
+    0,
+    595.276,
+    841.89
+  ],
+  "protected_hashes": [
+    {
+      "path": "F:\\Denso\\Denso-Hack_Presentation-EDABK_TriH.pptx",
+      "unchanged": true
+    },
+    {
+      "path": "F:\\cfg5_mophong\\server_train_mcr_current.py",
+      "unchanged": true
+    },
+    {
+      "path": "F:\\cfg5_mophong\\local_source\\docs\\DECISIONS.md",
+      "unchanged": true
+    }
+  ],
+  "git_status_final": " M local_source/docs/DECISIONS.md\n?? BAN_GIAO_CODEX_CFG5_MCR_2026-10-13.md\n?? BAN_GIAO_CODEX_CFG5_MCR_2026-10-13.txt\n?? cfg5_mcr_resume_plots_bundle/\n?? local_source/docs/MCR_RESUME_E25_PLOTS_VI.md\n?? local_source/requirements-plots.txt\n?? local_source/scripts/resume_mcr_with_plots.py\n?? local_source/scripts/slurm/cfg5_mcr_resume_plots.sbatch\n?? local_source/src/evaluation/mcr_epoch_plots.py\n?? local_source/tests/test_mcr_epoch_plots.py\n?? server_train_mcr_current.py\n",
+  "errors": []
+}

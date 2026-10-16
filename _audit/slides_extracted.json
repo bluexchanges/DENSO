@@ -1,0 +1,648 @@
+[
+  {
+    "slide": 1,
+    "text": [
+      "PHYSICAL AI TRONG BÀI TOÁN GẮP - ĐẶT LINH KIỆN\n\t",
+      "",
+      "EDABK_TriH\n\t\t\t\t\t\t"
+    ],
+    "notes": "",
+    "pictures": 0
+  },
+  {
+    "slide": 2,
+    "text": [
+      "CHECKLIST TỰ ĐÁNH GIÁ TRƯỚC KHI NỘP",
+      "",
+      "Final pitch message",
+      "Nếu được chọn, chúng tôi sẽ giúp DENSO phát triển robot học thao tác từ dữ liệu đa phương thức, hướng tới gắp-đặt linh kiện nhỏ, đồng thời giảm công sức lập trình lại khi thay đổi nhiệm vụ sản xuất \n",
+      "",
+      "DENSO Factory Hacks 2026  |  Submission Template",
+      "CÂU HỎI | TRẢ LỜI",
+      "1. Trình bày điểm mới, đột phá so với các giải pháp truyền thống? | Đề xuất robot học thao tác gắp–đặt từ dữ liệu mẫu bằng mô hình ACT, kết hợp dữ liệu đa phương thức (multi-modal) gồm hình ảnh camera và trạng thái robot để dự đoán chuỗi hành động. So với lập trình quỹ đạo cố định, giải pháp hướng tới khả năng thích nghi khi vị trí linh kiện thay đổi, giảm công sức lập trình lại và hỗ trợ mở rộng sang nhiệm vụ mới. Giải pháp được kiểm chứng trong mô phỏng trước khi triển khai thực tế.",
+      "2. Ý tưởng này đang giải quyết vấn đề gì tại Denso?  | Ý tưởng hướng tới giảm sự phụ thuộc vào nhân công trong công đoạn tiền xử lý linh kiện tại Denso, cụ thể là gắp và đặt linh kiện vào khay hoặc khuôn đúng vị trí; qua đó giảm thao tác lặp lại và nâng tính ổn định của công đoạn.",
+      "3. Phương pháp/công cụ áp dụng và thời gian thực hiện dự án? | Sử dụng phương pháp học bắt chước (imitation learning) với mô hình ACT; dự kiến huấn luyện trước bằng dữ liệu RH20T CFG5 để robot có thể học tổng quát tốt, sau đó tinh chỉnh cho nhiệm vụ cụ thể: gắp - đặt. Công cụ gồm Python, PyTorch, MuJoCo, mô hình robot Franka Panda và hệ thống 8 camera mô phỏng, tay máy chuẩn công nghiệp được tài trợ tại xưởng. Thời gian thực hiện: 3- 6 tháng",
+      "4. Ý tưởng này mang lại hiệu quả gì? Cho số liệu. | Mang lại độ chính xác cao, khéo léo và khả năng thích ứng trong sản xuất, giảm chi phí nhân công. Giả sử hệ thống 1 tay máy thay thế công việc 3 công nhân làm 8 giờ/ngày, lương 15 triệu/người/tháng thì với vốn đầu tư 1 tỷ đồng, thời gian hoàn vốn tầm 20 tháng (chưa tính chi phí bảo trì)",
+      "5.  Khả năng mở rộng, triển khai ngang của dự án là gì (trong nội bộ Denso hoặc các nhà máy khác)?  | Hướng tới few-shot training, giúp robot thực hiện được đa tác vụ, thích ứng kịp thời với môi trường và thời gian training lại ít nhất. Có thể phát triển cho các công đoạn gắp - đặt, cấp linh kiện và xếp linh kiện vào khay có đặc điểm tương tự trong nội bộ Denso hoặc các nhà máy khác.",
+      "6. Nhóm đã có những kiến thức hoặc kinh nghiệm nào giúp thực hiện giải pháp?  | Nhóm đã tích lũy kiến thức sâu hơn về CNN, Computer Vision, Transformer, CVAE,..., phục vụ học bắt chước, xử lý dữ liệu hình ảnh và trạng thái robot; kèm với đó là các giao thức, cấu trúc tay máy 6 trục, thuật toán điều khiển tay máy. Nhóm đã có kinh nghiệm lập trình Python, xây dựng môi trường mô phỏng để thử nghiệm, thu thập dữ liệu huấn luyện. Nhóm đã xây dựng bộ điều khiển và tiêu chí kiểm tra đặt vật đúng vị trí, tạo nền tảng cho bước huấn luyện và thử nghiệm tiếp theo.",
+      "TÊN CHỦ ĐỀ:",
+      "Ý tưởng của nhóm thuộc chủ đề nào trong các nhóm sau?",
+      "AI - Dự báo & Tri thức",
+      "Humanoid & Robot",
+      "Data - Chuẩn hóa & Khai thác",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "notes": "[Sources]\n- Existing template structure from Denso Hack_Presentation Template.pptx provided by user.\n- Visual on this slide was generated with Microsoft Copilot.\n",
+    "pictures": 3
+  },
+  {
+    "slide": 3,
+    "text": [
+      "GIỚI THIỆU TEAM\n"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 4,
+    "text": [
+      "Advisor",
+      "",
+      "Nhận bằng Tiến sĩ Kỹ thuật Điện từ Đại học Kaiserslautern năm 2009. \nLàm việc với tư cách là cán bộ khoa học tại Đại học Kaiserslautern, Đức trong 6 năm.\nHiện tại, thầy là Phó hiệu trưởng, nhà nghiên cứu và giảng viên tại Khoa Điện tử, trường Điện - Điện tử, Đại học Bách Khoa Hà Nội. Hoạt động nghiên cứu của thầy tập trung vào thiết kế phần cứng số, thiết kế hệ thống nhúng, kiểm chứng hình thức thiết kế số và hệ thống nhúng, AI tại biên. ",
+      "PGS.TS Nguyễn Đức Minh "
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 5,
+    "text": [
+      "Advisor",
+      "",
+      "Nhận bằng Tiến sĩ tại Úc năm 2017. \nHiện thầy là nhà nghiên cứu kiêm giảng viên tại Khoa Điện tử, trường Điện – Điện tử, Đại học Bách Khoa Hà Nội. Lĩnh vực nghiên cứu của thầy tập trung vào Trí tuệ nhân tạo và Thị giác máy tính.",
+      "PGS.TS Nguyễn Huy Hoàng"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 6,
+    "text": [
+      "Advisor",
+      "",
+      "Cử nhân Điện tử - Viễn thông, Đại học Bách khoa Hà Nội (HUST)\nThạc sĩ Kỹ thuật Điện & Khoa học Máy tính, National Taiwan University (NTU)\nhttps://www.linkedin.com/in/highquanglity/ ",
+      "Nghiêm Văn Quang"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 7,
+    "text": [
+      "Thành viên",
+      "",
+      "Sinh viên CTTN Kỹ thuật Điện tử - Viễn thông K70, Đại học Bách Khoa Hà Nội\nCPA: 3.7/4.0\nĐã làm qua một số dự án nhỏ về Học máy, thiết kế PID cho xe dò line, hệ thống bình nước thông minh...\n",
+      "Trương Việt Hùng",
+      "",
+      "Bùi Phạm Minh Hoàng",
+      "-  Tốt nghiệp ngành Hệ thống nhúng thông minh và IoT, Đại học Bách khoa Hà Nội.\n-  Kinh nghiệm AI công nghiệp: phát triển hệ thống đọc đồng hồ và mức dầu cho DENSO, đạt độ chính xác 99% trong đánh giá dự án.\nNghiên cứu AI giọng nói: triển khai nhận dạng giọng nói trên NVIDIA Jetson AGX với độ trễ dưới 1 giây; tác giả chính nghiên cứu SepAdapter, đang được phản biện tại ICLR 2027."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 8,
+    "text": [
+      "Thành viên",
+      "",
+      "",
+      "Sinh viên CTTN Kỹ thuật Điện tử - Viễn thông K70, Đại học Bách Khoa Hà Nội\nCPA: 3.73/4.00\nĐã làm qua một số dự án nhỏ về Học máy, thiết kế PID cho Micromouse,...",
+      "Sinh viên CTTN Kỹ thuật Điện tử - Viễn thông K70, Đại học Bách Khoa Hà Nội\nCPA: 3.67/4.00\nĐã làm qua một số dự án nhỏ về Học máy, thiết kế PID cho xe dò line,...",
+      "Đỗ Đức Hoàng",
+      "Lê Mạnh Hùng"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 9,
+    "text": [
+      "VẤN ĐỀ NHÌN THẤY"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 10,
+    "text": [
+      "",
+      "",
+      "",
+      "Vấn đề bạn nhìn thấy?",
+      "",
+      "Ảnh minh họa công nhân phải làm việc cùng một tác vụ hàng giờ ",
+      "Ở giai đoạn xử lý linh kiện trước khi làm sạch, công việc vẫn hoàn toàn phụ thuộc vào con người.",
+      "Hậu quả là tỷ lệ sai sót cao, chi phí nhân công tăng, tiến độ công việc bị giới hạn bởi thể lực con người.",
+      "Phân loại linh kiện nhỏ thủ công gây mỏi mắt, giảm độ tập trung sau thời gian dài cho công nhân."
+    ],
+    "notes": "",
+    "pictures": 2
+  },
+  {
+    "slide": 11,
+    "text": [
+      "GIẢI PHÁP ĐỀ XUẤT"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 12,
+    "text": [
+      "Giải pháp đề xuất ",
+      "Nhóm đề xuất hệ thống robot 7 bậc tự do tích hợp mô hình ACT để tự động hóa thao tác gắp–đặt linh kiện. Mô hình học từ dữ liệu đa phương thức (multi-modal), kết hợp hình ảnh từ 8 camera và trạng thái robot để dự đoán chuỗi hành động, điều khiển cánh tay và bộ kẹp.",
+      "Tổng quan"
+    ],
+    "notes": "",
+    "pictures": 3
+  },
+  {
+    "slide": 13,
+    "text": [
+      "Giải pháp đề xuất",
+      "Giải pháp đáp ứng mục tiêu DENSO"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 14,
+    "text": [
+      "Giải pháp đề xuất",
+      "Tiêu chí | Cánh tay Robot truyền thống | Giải pháp của nhóm",
+      "Khả năng mở rộng | Nhiều loại linh kiện, nhiều nhiệm vụ có thể đòi hỏi cấu hình tay máy riêng hoặc phát triển logic điều khiển riêng cho từng tác vụ. | Hướng tới sử dụng chung một hệ thống cho nhiều loại linh kiện và nhiệm vụ thông qua huấn luyện bổ sung.",
+      "Công sức triển khai lại | Có thể cần lập trình,chỉnh thuật toán và cấu hình khi thay đổi linh kiện, nhiệm vụ. | Hướng tới giảm công sức lập trình thủ công bằng cách bổ sung lượng nhỏ dữ liệu minh họa.",
+      "Chi phí và độ phức tạp | Chi phí phát triển, tích hợp và bảo trì có thể tăng khi số lượng linh kiện, nhiệm vụ tăng. | Hướng tới tái sử dụng mô hình và hệ thống robot, giảm nhu cầu phát triển giải pháp riêng cho từng tác vụ."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 15,
+    "text": [
+      "Giải pháp đề xuất ",
+      "Quy trình hoạt động"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 16,
+    "text": [
+      "Giải pháp đề xuất ",
+      "Cách robot học thao tác",
+      "Ảnh và trạng thái ở từng thời điểm gắn với chuỗi hành động mẫu để robot học bắt chước.",
+      "1. Pretrain từ RH20T",
+      "Học từ quỹ đạo robot, ảnh và trạng thái.",
+      "2. Bổ sung dữ liệu task đích",
+      "Mẫu Panda gắp và đặt chốt nhỏ vào khuôn.",
+      "3. Fine-tune ACT",
+      "Điều chỉnh mô hình cho đúng bài toán pick-place của mình",
+      "4. Chạy và đánh giá",
+      "Nhận ảnh mới, dự đoán và thực thi thao tác.",
+      "Kiến trúc ACT gốc của Zhao và cộng sự",
+      "Trong dự án: dự đoán pose tay và độ mở kẹp",
+      "Bộ điều khiển chuyển dự đoán thành chuyển động.\nẢnh mới giúp cập nhật thao tác tiếp theo."
+    ],
+    "notes": "",
+    "pictures": 3
+  },
+  {
+    "slide": 17,
+    "text": [
+      "Giải pháp đề xuất",
+      "Dữ liệu task đích tự tạo",
+      "Controller trong MuJoCo sinh mẫu gắp và đặt. Mỗi mẫu ghi đồng bộ quan sát và thông tin thao tác.",
+      "Cùng một camera, các điều kiện mô phỏng khác nhau",
+      "1.000",
+      "demonstration mô phỏng đạt",
+      "Thông tin ghi trong mỗi mẫu",
+      "8 góc ảnh, timestamp, trạng thái robot,\nlệnh điều khiển và kết quả gắp/đặt.",
+      "Biến thiên có kiểm soát",
+      "Màu, nền, ánh sáng, vị trí vật/khuôn\nvà vật phụ trong ảnh."
+    ],
+    "notes": "",
+    "pictures": 6
+  },
+  {
+    "slide": 18,
+    "text": [
+      "Giải pháp đề xuất",
+      "",
+      "Các thành phần của hệ thống",
+      "Camera cung cấp ảnh, ACT dự đoán hành động, bộ điều khiển thực hiện chuyển động trên Panda.",
+      "Camera",
+      "Mô hình ACT",
+      "Bộ điều khiển và Panda",
+      "Hệ camera RH20T (minh họa)",
+      "Ảnh RGB + trạng thái robot",
+      "Chuỗi pose tay + độ mở kẹp",
+      "Panda trong MuJoCo",
+      "Rig của dự án: 8 camera RGB\n6 cố định, 2 gắn trên tay",
+      "Học liên hệ giữa quan sát và thao tác\nChưa dự đoán trực tiếp lực kẹp",
+      "Thực hiện chuyển động cánh tay\nvà đóng, mở kẹp theo lệnh"
+    ],
+    "notes": "",
+    "pictures": 4
+  },
+  {
+    "slide": 19,
+    "text": [
+      "Giải pháp đề xuất",
+      "Hướng tới few-shot cho bài toán đa dạng",
+      "Few-shot: thích nghi với bài toán mới bằng ít mẫu bổ sung, dựa trên kiến thức đã học.",
+      "Ví dụ thao tác đa dạng trong RH20T",
+      "Hình trích Fig. 1, Fang và cộng sự, RH20T",
+      "1. Học nền từ dữ liệu đa dạng",
+      "RH20T cung cấp thao tác trong nhiều bối cảnh.\nPretrain để học đặc trưng phục vụ điều khiển.",
+      "2. Bổ sung ít mẫu cho bài toán đích",
+      "Tạo demo phù hợp với vật và khuôn mới.\nFine-tune ACT trên nền mô hình đã học.",
+      "3. Mở rộng sang biến thể mới",
+      "Bắt đầu từ biến thể gắp, đặt có liên quan.\nTiến tới đa dạng linh kiện và thao tác."
+    ],
+    "notes": "",
+    "pictures": 2
+  },
+  {
+    "slide": 20,
+    "text": [
+      "HIỆU QUẢ MANG LẠI"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 21,
+    "text": [
+      "Hiệu quả mang lại",
+      "So sánh trên cơ sở giờ công của nhân công",
+      "Đơn vị tính",
+      "Giờ công công nhân và VNĐ.\nQuy đổi ngày công: 8 giờ/ngày.\nĐơn giá giả định: 250.000 VNĐ/giờ.",
+      "Nội dung so sánh",
+      "Thời gian lập trình robot 6 DOF.\nTổng công cho 10 bài toán khác nhau.\nChi phí khi dùng mô phỏng Physical AI.\nThời gian tích lũy và điểm hòa vốn.",
+      "Chi phí nhân công trong báo cáo là công lập trình, huấn luyện và kiểm thử."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 22,
+    "text": [
+      "Hiệu quả mang lại",
+      "Lập trình truyền thống và huấn luyện AI",
+      "Thời gian thực hiện phụ thuộc phương pháp tạo chuyển động và điều kiện của hệ thống.",
+      "Teach Pendant / lập trình động học",
+      "Kỹ sư dạy điểm, lập trình quỹ đạo và kiểm thử robot.\nKhối lượng công phụ thuộc số điểm, quỹ đạo và mức độ phức tạp của tác vụ.",
+      "Imitation Learning / Reinforcement Learning",
+      "Thời gian bao gồm thu thập dữ liệu, tính toán huấn luyện\nvà đánh giá chính sách điều khiển trước khi nghiệm thu."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 23,
+    "text": [
+      "Hiệu quả mang lại",
+      "Ước tính thời gian theo phương pháp",
+      "Các khoảng thời gian dưới đây là tham khảo lập kế hoạch trong báo cáo.",
+      "Phương pháp | Thời gian ước tính | Nội dung công việc",
+      "Teach Pendant | 1-8 giờ | Dạy vị trí và quỹ đạo cố định",
+      "IK + motion planning | 1-5 ngày | Tạo quỹ đạo, kiểm tra va chạm",
+      "Camera + vision | 3-14 ngày | Xử lý ảnh, hiệu chuẩn camera-robot",
+      "Imitation Learning | 1-7 ngày | Dữ liệu minh họa, huấn luyện, kiểm thử",
+      "Reinforcement Learning | Vài ngày đến vài tuần | Thiết kế thưởng/phạt, mô phỏng, kiểm thử"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 24,
+    "text": [
+      "Hiệu quả mang lại",
+      "Ví dụ 1 bài gắp và đặt đơn giản",
+      "Ví dụ khi robot, gripper và hệ thống đã lắp đặt sẵn.",
+      "Công đoạn | Thời gian",
+      "Thiết lập hệ tọa độ và gripper | 30-60 phút",
+      "Dạy 4-8 điểm | 30-90 phút",
+      "Lập trình gripper | 15-30 phút",
+      "Kiểm tra va chạm và tốc độ | 30-120 phút",
+      "2-5 giờ/bài"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 25,
+    "text": [
+      "Hiệu quả mang lại",
+      "Thời gian theo độ phức tạp",
+      "Tính cho một kỹ sư thực hiện các tác vụ trên cùng robot.",
+      "Nhóm bài toán | Thời gian mỗi bài | 10 bài cùng nhóm",
+      "Đơn giản | 2-5 giờ | 20-50 giờ",
+      "Trung bình | 1-3 ngày | 10-30 ngày công",
+      "Phức tạp | 3-7 ngày | 30-70 ngày công"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 26,
+    "text": [
+      "Hiệu quả mang lại",
+      "10 bài hỗn hợp: 120–200 giờ công",
+      "Tương đương 15–25 ngày công 8 giờ, dự toán 30–50 triệu VNĐ ở đơn giá 250.000 VNĐ/giờ.",
+      "Giờ công = số bài đơn giản × 4 + số bài trung bình × 16 + số bài phức tạp × 40",
+      "Nhóm tác vụ | Số bài | Giờ/bài | Tổng giờ",
+      "Đơn giản | 4 | 4 | 16",
+      "Trung bình | 4 | 16 | 64",
+      "Phức tạp | 2 | 40 | 80",
+      "Tổng | 10 |  | 160",
+      "160 giờ",
+      "20 ngày công",
+      "40 triệu"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 27,
+    "text": [
+      "Hiệu quả mang lại",
+      "10 bài toán khi nền tảng mô phỏng đã sẵn sàng",
+      "Giả định đã có môi trường mô phỏng và quy trình huấn luyện để tái sử dụng.",
+      "CHART: COLUMN_CLUSTERED (51)",
+      "50%",
+      "giảm giờ công",
+      "Truyền thống\n160 giờ = 40 triệu VNĐ",
+      "Physical AI\n80 giờ = 20 triệu VNĐ"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 28,
+    "text": [
+      "Hiệu quả mang lại",
+      "Chi phí xây dựng nền tảng Physical AI",
+      "Chi phí thiết lập cần tính trước khi dùng mô phỏng cho các bài toán tiếp theo.",
+      "Hạng mục | Giờ công ước tính",
+      "Digital Twin: robot, gripper, môi trường | 40-80",
+      "Isaac Lab, quy trình huấn luyện\nvà sim-to-real | 40-80",
+      "Thực hiện 10 bài khi có nền tảng | 80",
+      "Tổng triển khai đầu tiên | 160-240",
+      "80-160 giờ thiết lập",
+      "80 giờ cho 10 bài"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 29,
+    "text": [
+      "Hiệu quả mang lại",
+      "10 bài đầu tiên chưa chắc tiết kiệm nhân công",
+      "Physical AI cần 160–240 giờ cho lần đầu, so với 160 giờ theo cách truyền thống.",
+      "Phương án | Giờ công / 10 bài | Chi phí nhân công",
+      "Truyền thống | 160 | 40 triệu VNĐ",
+      "Physical AI lần đầu | 160-240 | 40-60 triệu VNĐ",
+      "Tình huống trong đồ thị hòa vốn",
+      "120 giờ thiết lập + 80 giờ cho 10 bài = 200 giờ"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 30,
+    "text": [
+      "Hiệu quả mang lại",
+      "10 bài hỗn hợp: dự toán 160 giờ công",
+      "Mô hình tính trong báo cáo dùng định mức 4, 16 và 40 giờ cho ba nhóm độ phức tạp.",
+      "Nhóm tác vụ | Số bài | Giờ/bài | Tổng giờ",
+      "Đơn giản | 4 | 4 | 16",
+      "Trung bình | 4 | 16 | 64",
+      "Phức tạp | 2 | 40 | 80",
+      "Tổng | 10 |  | 160",
+      "160 giờ",
+      "20 ngày công\n8 giờ/ngày",
+      "40 triệu",
+      ""
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 31,
+    "text": [
+      "Hiệu quả mang lại",
+      "Cách tính thời gian tích lũy",
+      "n là số bài toán triển khai trên nền tảng có thể tái sử dụng.",
+      "Truyền thống",
+      "H = 16 × n",
+      "16 giờ cho mỗi bài toán.",
+      "Physical AI",
+      "H = 120 + 8 × n",
+      "120 giờ thiết lập mô phỏng.\n8 giờ cho mỗi bài khi có nền tảng.",
+      "Giờ tiết kiệm = 16n - (120 + 8n) = 8n - 120"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 32,
+    "text": [
+      "Hiệu quả mang lại",
+      "Hòa vốn về giờ công tại 15 bài toán",
+      "Truyền thống: 16 giờ/bài. Physical AI: 120 giờ thiết lập + 8 giờ/bài.",
+      "CHART: XY_SCATTER (-4169)",
+      "15 bài",
+      "120 ÷ (16 - 8) = 15",
+      "Tại điểm hòa vốn:\n240 giờ cho mỗi cách\n60 triệu VNĐ giờ công"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 33,
+    "text": [
+      "Hiệu quả mang lại",
+      "So sánh tại 10, 20, 30, 50 và 100 bài toán",
+      "Giữ cùng giả định 120 giờ thiết lập, 16 giờ/bài truyền thống và 8 giờ/bài Physical AI.",
+      "Số bài | Truyền thống\n(giờ) | Physical AI\n(giờ) | Giờ tiết kiệm | Giá trị tiết kiệm\n(triệu VNĐ)",
+      "10 | 160 | 200 | -40 | -10",
+      "20 | 320 | 280 | 40 | 10",
+      "30 | 480 | 360 | 120 | 30",
+      "50 | 800 | 520 | 280 | 70",
+      "100 | 1.600 | 920 | 680 | 170"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 34,
+    "text": [
+      "Hiệu quả mang lại",
+      "Điều kiện để Physical AI có lợi thế kinh tế",
+      "Lợi ích phụ thuộc số lượng tác vụ, độ đa dạng môi trường và khả năng tái sử dụng nền tảng.",
+      "10 bài cố định và đơn giản",
+      "Teach Pendant hoặc motion planning có thể kinh tế hơn.\nChi phí thiết lập mô phỏng lần đầu có thể làm tăng tổng giờ công.",
+      "Nhiều tác vụ và môi trường đa dạng",
+      "Physical AI có lợi thế khi tái sử dụng được Digital Twin.\nLợi ích tích lũy tăng khi số bài toán mở rộng trên cùng nền tảng."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 35,
+    "text": [
+      "Hiệu quả mang lại",
+      "Tiêu chí | Phương pháp thủ công | Giải pháp cánh tay Robot",
+      "Độ chính xác | Có sai số (~2 - 5%) do sức khỏe như mỏi mắt khi nhìn linh kiện nhỏ. | Cao nhờ kết hợp Camera Vision và thuật toán nhận diện.",
+      "Thời gian hoạt động | Tối đa 8-10 tiếng/ca (ngoài ra còn nghỉ ngơi, đổi ca). | 24/7 (thỉnh thoảng nghỉ thời gian ngắn để bảo trì định kỳ).",
+      "Khả năng thích ứng mẫu mới | Cần thời gian đào tạo lại công nhân khi dây chuyền đổi loại linh kiện. | Nhanh chóng nhờ Few-shot Learning giúp robot làm quen với thao tác gắp linh kiện mới trong thời gian cập nhật dữ liệu."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 36,
+    "text": [
+      "Hiệu quả mang lại",
+      "Tiêu chí | Phương pháp thủ công | Giải pháp cánh tay Robot",
+      "Độ ổn định thao tác | Xúc giác tự nhiên tốt, có thể dễ dàng chỉnh lực nắm, thả tốt với từng loại linh kiện | Đang phát triển, nhìn chung quỹ đạo cho các tác vụ sẽ ổn định, đa dạng, phù hợp với sự thay đổi của môi trường và điều kiện vật lý",
+      "Quản lý, lưu trữ dữ liệu | Phải đếm hoặc ghi chép thủ công dẫn đến dễ thất thoát số liệu. | Theo thời gian thực nhờ hệ thống tự động đếm số lượng, phân tích tỷ lệ lỗi và đồng bộ lên hệ thống.",
+      "Chi phí | Tốn chi phí lương hằng tháng, bảo hiểm, biến động nhân sự (trung bình 18-20 triệu đồng/tháng) | Đầu tư một lần (khoảng tỉ đồng), chi phí bảo trì thấp. Dùng được lâu dài."
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 37,
+    "text": [
+      "Hiệu quả mang lại",
+      "Khả năng mở rộng",
+      "Hệ thống có thể học để cánh tay  hiện có củnhận diện các loại linh kiện mới trong thời gian ngắn.\nDễ dàng lắp đặt tích hợp mô hình vào a nhà máy."
+    ],
+    "notes": "",
+    "pictures": 2
+  },
+  {
+    "slide": 38,
+    "text": [
+      "Hiệu quả mang lại",
+      "Tác động kinh tế",
+      "Ước tính thời gian hoàn vốn sau 16-18 tháng\nTối ưu hóa nguồn nhân lực (chuyển công nhân sang các khâu kiểm tra chất lượng cao hơn)"
+    ],
+    "notes": "",
+    "pictures": 2
+  },
+  {
+    "slide": 39,
+    "text": [
+      "THỜI GIAN TRIỂN KHAI"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 40,
+    "text": [
+      "Thời gian triển khai",
+      "",
+      "Cột mốc",
+      "",
+      "Mô hình & môi trường mô phỏng sẵn sàng",
+      "",
+      "Mô hình huấn luyện xong trên mô phỏng",
+      "",
+      "Chạy được trên cánh tay máy thật",
+      "",
+      "Chú thích",
+      "",
+      "GĐ 1: Nghiên cứu & mô phỏng",
+      "",
+      "GĐ 2: Huấn luyện mô phỏng",
+      "",
+      "GĐ 3: Triển khai thật",
+      "",
+      "Mục tiêu xa hơn",
+      "",
+      "Hạng mục",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "GĐ 1",
+      "",
+      "GĐ 2",
+      "",
+      "GĐ 3",
+      "",
+      "Mục tiêu xa hơn",
+      "Giai đoạn",
+      "Nghiên cứu mô hình",
+      "",
+      "1 tháng",
+      "Dựng môi trường mô phỏng",
+      "",
+      "1 tháng",
+      "Thử nghiệm, thu thập dữ liệu",
+      "",
+      "2 tháng",
+      "Huấn luyện mô hình trong môi trường mô phỏng",
+      "",
+      "2 tháng",
+      "Triển khai sang mô hình thật",
+      "",
+      "2 tháng",
+      "Fine-tuning thích ứng với cánh tay máy thực tế",
+      "",
+      "2 tháng",
+      "Mục tiêu xa hơn",
+      "Few-shot và học đa phương thức",
+      ""
+    ],
+    "notes": "",
+    "pictures": 0
+  },
+  {
+    "slide": 41,
+    "text": [
+      "KẾT LUẬN"
+    ],
+    "notes": "",
+    "pictures": 1
+  },
+  {
+    "slide": 42,
+    "text": [
+      "Kết luận",
+      "Lợi ích kinh tế kỳ vọng: tiết kiệm chi phí nhân công, hướng tới giảm công lập trình và điều chỉnh robot khi thay đổi linh kiện hoặc bài toán. Dữ liệu mô phỏng giúp chủ động tạo mẫu huấn luyện trước khi thử nghiệm trên thiết bị thật.\n\nLộ trình hoàn hiện hệ thống end-to-end: quy trình đề xuất bắt đầu từ tạo dữ liệu trong mô phỏng, huấn luyện mô hình và kiểm chứng trước khi triển khai trên robot thật.\n\nHiện tại nhóm đã dựng được mô hình, mô phỏng điều khiển, tạo data từ mô phỏng cho riêng tác vụ gắp-đặt vật nhỏ vào khuôn. Nhóm đã pretrain với bộ RH20T để mô hình học tổng quát, train và inference để mô overfit, từ đó chứng minh mô hình đã học thật. \n\nTrong giai đoạn tiếp theo nhóm sẽ train với bộ data tự tạo (cho bài toán pick-place), sau đó thay tay mô phỏng bằng mô phỏng tay thật đang có, rồi đưa xuống cánh tay thật đã có, xa hơn là hướng tới few-short và đa tác vụ, deploy xuống phần cứng..."
+    ],
+    "notes": "",
+    "pictures": 0
+  },
+  {
+    "slide": 43,
+    "text": [],
+    "notes": "",
+    "pictures": 1
+  }
+]

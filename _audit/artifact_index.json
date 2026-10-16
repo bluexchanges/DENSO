@@ -1,0 +1,126 @@
+[
+  {
+    "path": "F:\\cfg5_mophong\\.tmp_plot_check\\history.json",
+    "bytes": 249
+  },
+  {
+    "path": "F:\\cfg5_mophong\\checkpoints\\before_test_20261007_142338\\history.json",
+    "bytes": 78995
+  },
+  {
+    "path": "F:\\cfg5_mophong\\checkpoint_upload_repo\\04-Src\\software\\cfg5_act\\checkpoints\\history.json",
+    "bytes": 78995
+  },
+  {
+    "path": "F:\\cfg5_mophong\\checkpoint_upload_repo\\04-Src\\software\\cfg5_act\\data\\splits\\cfg5_all_normalization.json",
+    "bytes": 26250
+  },
+  {
+    "path": "F:\\cfg5_mophong\\checkpoint_upload_repo\\04-Src\\software\\cfg5_act\\data\\splits\\smoke_normalization.json",
+    "bytes": 3457
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000056\\rollout_report.json",
+    "bytes": 5291
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000161\\rollout_report.json",
+    "bytes": 5291
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000168\\rollout_report.json",
+    "bytes": 5294
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000197\\rollout_report.json",
+    "bytes": 5287
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000425\\rollout_report.json",
+    "bytes": 5288
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000461\\rollout_report.json",
+    "bytes": 5291
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000495\\rollout_report.json",
+    "bytes": 5291
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000840\\rollout_report.json",
+    "bytes": 5290
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000938\\rollout_report.json",
+    "bytes": 5294
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\pick_place_000976\\rollout_report.json",
+    "bytes": 5288
+  },
+  {
+    "path": "F:\\cfg5_mophong\\epoch5_transfer_probe_14120\\selection.json",
+    "bytes": 810
+  },
+  {
+    "path": "F:\\cfg5_mophong\\github_source\\data\\splits\\cfg5_all_normalization.json",
+    "bytes": 26836
+  },
+  {
+    "path": "F:\\cfg5_mophong\\github_source\\data\\splits\\smoke_normalization.json",
+    "bytes": 3560
+  },
+  {
+    "path": "F:\\cfg5_mophong\\github_upload_source1\\04-Src\\software\\cfg5_act\\data\\splits\\cfg5_all_normalization.json",
+    "bytes": 26836
+  },
+  {
+    "path": "F:\\cfg5_mophong\\github_upload_source1\\04-Src\\software\\cfg5_act\\data\\splits\\smoke_normalization.json",
+    "bytes": 3560
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source\\data\\splits\\cfg5_all_normalization.json",
+    "bytes": 26836
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source\\data\\splits\\smoke_normalization.json",
+    "bytes": 3560
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source\\outputs\\cfg5_review\\selection.json",
+    "bytes": 2966
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source\\outputs\\cfg5_review\\summary.json",
+    "bytes": 498
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source\\outputs\\controller_evaluation\\summary.json",
+    "bytes": 375
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source\\outputs\\placement_logic_review\\summary.json",
+    "bytes": 375
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source_(1)\\data\\splits\\cfg5_all_normalization.json",
+    "bytes": 26836
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source_(1)\\data\\splits\\pick_place_finetune_normalization.json",
+    "bytes": 1850
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source_(1)\\data\\splits\\smoke_normalization.json",
+    "bytes": 3560
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source_(1)\\docs\\audit\\cfg5_missing_data_review\\summary.json",
+    "bytes": 7426
+  },
+  {
+    "path": "F:\\cfg5_mophong\\local_source_(1)\\outputs\\data_audit\\cfg5_joint_missing_server_summary.json",
+    "bytes": 728
+  }
+]
